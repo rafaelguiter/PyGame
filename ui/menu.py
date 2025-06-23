@@ -9,7 +9,7 @@ def desenhar_menu(game):
         game.TELA.fill((230, 230, 255))
         
      # titulo do jogo    
-    titulo = game.FONTE.render("Coleta Seletiva", True, PRETO) # nome
+    titulo = game.FONTE.render("", True, PRETO) # nome
     game.TELA.blit(titulo, (280, 100)) # tamanho do nome
 
     # botao start

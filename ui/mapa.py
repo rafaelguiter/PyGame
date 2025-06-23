@@ -8,7 +8,7 @@ def desenhar_mapa(game):
     else:
         game.TELA.fill((210, 255, 210))
     
-    game.TELA.blit(game.FONTE.render("Selecione a Fase", True, PRETO), (280, 50))
+    game.TELA.blit(game.FONTE.render("", True, PRETO), (280, 50))
 
     for i, rect in enumerate(game.fase_rects):
         cor = VERDE if game.fases_desbloqueadas[i] else CINZA
