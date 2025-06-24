@@ -67,7 +67,7 @@ class Game:
         if self.img_fundo_mapa:
             self.img_fundo_mapa = pygame.transform.scale(self.img_fundo_mapa, (self.LARGURA, self.ALTURA))
             
-        #fundo mapa    
+        #fundo opcoes
         self.img_fundo_opcoes = carregar_imagem("fundo_opcoes.jpg")
         if self.img_fundo_opcoes:
             self.img_fundo_opcoes = pygame.transform.scale(self.img_fundo_opcoes, (self.LARGURA, self.ALTURA))
@@ -96,11 +96,11 @@ class Game:
         
         
         self.lixeiras = {
-            "plastico": pygame.Rect(50, 430, 120, 135),
-            "papel": pygame.Rect(190, 430, 120, 135),
-            "organico": pygame.Rect(330, 430, 120, 135),
-            "vidro": pygame.Rect(470, 430, 120, 135),
-            "metal": pygame.Rect(610, 430, 120, 135),
+            "plastico": pygame.Rect(50, 430, 130, 150),
+            "papel": pygame.Rect(190, 430, 130, 150),
+            "organico": pygame.Rect(330, 430, 130, 150),
+            "vidro": pygame.Rect(470, 430, 130, 150),
+            "metal": pygame.Rect(610, 430, 130, 150),
         }
         
         
