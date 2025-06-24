@@ -11,7 +11,7 @@ def desenhar_fim_jogo(game):
     game.TELA.blit(superficie_escura, (0, 0))
     
     # Retângulo principal da tela de fim de jogo
-    rect_principal = pygame.Rect(150, 150, 500, 300)
+    rect_principal = pygame.Rect(115, 150, 570, 350)
     pygame.draw.rect(game.TELA, BRANCO, rect_principal)
     pygame.draw.rect(game.TELA, PRETO, rect_principal, 3)
     
