@@ -50,6 +50,11 @@ def processar_eventos(game, eventos):
                     game.tocar_som("voltar")
                     game.modo = "menu"
 
+            elif game.modo == "fim_jogo":
+                if hasattr(game, 'rect_fim_jogo_continuar') and game.rect_fim_jogo_continuar.collidepoint(evento.pos):
+                    game.tocar_som("frente")
+                    game.modo = "mapa"
+
             elif game.modo == "jogo":
                 if game.em_pausa:
                     if game.rect_pausado_continuar.collidepoint(evento.pos):
@@ -95,13 +100,14 @@ def processar_eventos(game, eventos):
                             game.lixo_rect.x = 350
                             game.lixo_rect.y = 200
                         else:
+                            # Fase terminou - mostrar tela de fim de jogo
                             acuracia = game.acertos / game.max_lixos
                             if acuracia >= 0.9 and game.fase_atual < game.total_fases:
                                 game.fases_desbloqueadas[game.fase_atual] = True
                                 game.tocar_som("ganhou")
                             else:
                                 game.tocar_som("perdeu")
-                            game.modo = "mapa"
+                            game.modo = "fim_jogo"
                         break
 
                 if not lixo_colocado:

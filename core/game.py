@@ -13,6 +13,7 @@ from ui.tutorial import desenhar_tutorial
 from ui.mapa import desenhar_mapa
 from ui.jogo import desenhar_jogo
 from ui.opcoes import desenhar_opcoes
+from ui.fim_jogo import desenhar_fim_jogo
 
 class Game:
     def __init__(self):
@@ -47,21 +48,22 @@ class Game:
         self.rect_pausado_continuar = pygame.Rect(300, 320, 200, 60)
         self.fase_rects = [pygame.Rect(100 + i * 130, 250, 100, 100) for i in range(self.total_fases)]
         self.rect_som = pygame.Rect(300, 400, 200, 60)
+        self.rect_fim_jogo_continuar = pygame.Rect(300, 400, 200, 50)
         
         # Fundos das telas
         
         #fundo menu
-        self.img_fundo_menu = carregar_imagem("fundo_menu.jpg")
+        self.img_fundo_menu = carregar_imagem("fundo_inicial.png")
         if self.img_fundo_menu:
             self.img_fundo_menu = pygame.transform.scale(self.img_fundo_menu, (self.LARGURA, self.ALTURA))
     
         #fundo jogo
-        self.img_fundo_jogo = carregar_imagem("fundo_jogo.jpg")
+        self.img_fundo_jogo = carregar_imagem("playground.png")
         if self.img_fundo_jogo:
             self.img_fundo_jogo = pygame.transform.scale(self.img_fundo_jogo, (self.LARGURA, self.ALTURA))
             
         #fundo mapa    
-        self.img_fundo_mapa = carregar_imagem("fundo_mapa.jpg")
+        self.img_fundo_mapa = carregar_imagem("fundo_fases.png")
         if self.img_fundo_mapa:
             self.img_fundo_mapa = pygame.transform.scale(self.img_fundo_mapa, (self.LARGURA, self.ALTURA))
             
@@ -74,10 +76,10 @@ class Game:
         
         #imagens tutorial
         self.img_tutorial = [
-        carregar_imagem_escalada("tutorial/tutorial_1.jpg", (self.LARGURA, self.ALTURA)),
-        carregar_imagem_escalada("tutorial/tutorial_2.jpg", (self.LARGURA, self.ALTURA)),
-        carregar_imagem_escalada("tutorial/tutorial_3.jpg", (self.LARGURA, self.ALTURA)),
-        carregar_imagem_escalada("tutorial/tutorial_4.jpg", (self.LARGURA, self.ALTURA)),
+        carregar_imagem_escalada("tutorial/tutorial_1.png", (self.LARGURA, self.ALTURA)),
+        carregar_imagem_escalada("tutorial/tutorial_2.png", (self.LARGURA, self.ALTURA)),
+        carregar_imagem_escalada("tutorial/tutorial_3.png", (self.LARGURA, self.ALTURA)),
+        carregar_imagem_escalada("tutorial/tutorial_4.png", (self.LARGURA, self.ALTURA)),
         ]
         
 
@@ -85,7 +87,7 @@ class Game:
         # Imagens das lixeiras
         
         tipos = ["plastico", "papel", "organico", "vidro", "metal"]
-        tamanho_lixeira = (120, 135)  # tamanho desejado para a sprite
+        tamanho_lixeira = (130, 150)  # tamanho desejado para a sprite
 
         self.img_lixeiras = {
         tipo: carregar_imagens_lixeiras(f"lixeira_{tipo}", tamanho_lixeira)
@@ -217,3 +219,5 @@ class Game:
             desenhar_jogo(self)
         elif self.modo == "opcoes":
             desenhar_opcoes(self)
+        elif self.modo == "fim_jogo":
+            desenhar_fim_jogo(self)
